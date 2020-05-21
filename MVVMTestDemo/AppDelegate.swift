@@ -1,10 +1,8 @@
-//
+
 //  AppDelegate.swift
 //  MVVMTestDemo
-//
 //  Created by Ravi Parsa on 03/09/19.
 //  Copyright © 2019 Ravi Parsa. All rights reserved.
-//
 
 import UIKit
 
@@ -12,7 +10,6 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

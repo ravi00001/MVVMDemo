@@ -25,6 +25,8 @@ var locatorViewModel: LocatorViewModel?
         
     }
 
+    //MARK: - Functions
+    
     func getLocations() {
         
         if !Reachability.isConnectedToNetwork() {
