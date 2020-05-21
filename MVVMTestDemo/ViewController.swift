@@ -17,7 +17,6 @@ var locatorViewModel: LocatorViewModel?
     var textCode = "12345"
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         self.locatorViewModel = LocatorViewModel()
          getLocations()
@@ -69,7 +68,6 @@ var locatorViewModel: LocatorViewModel?
                 } else if (self?.locatorViewModel!.locatorModel?.count)! > 0 {
                     
                 } else {
-                    
                 }
                 
                 print(self?.locatorViewModel!.locatorModel)
