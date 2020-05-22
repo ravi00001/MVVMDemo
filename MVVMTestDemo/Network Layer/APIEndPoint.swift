@@ -9,9 +9,12 @@ struct JCNetworkEndPoints {
 
     //209
     static func getDevBaseURL() -> String {
-        return "https://0630p5qdph.execute-api.us-west-2.amazonaws.com/jc-npd-mbl-http/admin/"
+       // return "https://0630p5qdph.execute-api.us-west-2.amazonaws.com/jc-npd-mbl-http/admin/"
         
    
+       // return "http://localhost:1043/"
+        return "https://glucotrackapp.mobileprogramming.net/"
+
     }
 
     //AWS

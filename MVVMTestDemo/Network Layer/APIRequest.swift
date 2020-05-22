@@ -128,7 +128,8 @@ extension JCAPIResource {
                 request.allHTTPHeaderFields = ["Content-Type": "application/json; charset=utf-8", "x-api-key": baseHeader, "x-mp-user-email": username]
             }
         }*/
-        request.allHTTPHeaderFields = ["Content-Type": "application/json; charset=utf-8", "x-api-key": baseHeader, "x-mp-user-email": "mira@gmail.com"]
+        //request.allHTTPHeaderFields = ["Content-Type": "application/json; charset=utf-8", "x-api-key": baseHeader, "x-mp-user-email": "mira@gmail.com"]
+        request.allHTTPHeaderFields = ["Content-Type": "application/json; charset=utf-8"]
         request.httpBody = self.body()
         //request.allHTTPHeaderFields = self.headers
         print("url :: \(url)")

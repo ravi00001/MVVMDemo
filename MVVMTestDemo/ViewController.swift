@@ -10,7 +10,10 @@ import UIKit
 import CoreLocation
 
 class ViewController: UIViewController {
-var locatorViewModel: LocatorViewModel?
+    
+    var locatorViewModel: LocatorViewModel?
+    var loginViewModel: LoginViewModel?
+    
     private var animatorView: UIView?
     private let locationManager = CLLocationManager()
     
@@ -18,12 +21,16 @@ var locatorViewModel: LocatorViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.locatorViewModel = LocatorViewModel()
-         getLocations()
-        self.setUpHandler()
+        //self.locatorViewModel = LocatorViewModel()
+        //getLocations()
+        //self.setUpHandler()
+        
+        self.loginViewModel = LoginViewModel()
+        self.loginViewModel?.login()
+        setUpHandlerLogin()
         
     }
-
+    
     //MARK: - Functions
     
     func getLocations() {
@@ -64,7 +71,7 @@ var locatorViewModel: LocatorViewModel?
             case .getLocation:
                 if self?.locatorViewModel?.locatorModel == nil {
                     
-  
+                    
                 } else if (self?.locatorViewModel!.locatorModel?.count)! > 0 {
                     
                 } else {
@@ -85,7 +92,40 @@ var locatorViewModel: LocatorViewModel?
             }
             } as ((String) -> Void)
     }
-
+    
+    func setUpHandlerLogin() {
+        loginViewModel!.successViewClosure = { [weak self] (serviceType) in
+            
+            if (self?.animatorView) != nil {
+                UIViewController.removeSpinner(spinner: (self?.animatorView)!)
+            }
+            
+            switch serviceType {
+            case .loginUser:
+                if self?.loginViewModel?.loginModel == nil {
+                    
+                    
+                } else if (self?.loginViewModel!.loginModel?.count)! > 0 {
+                    
+                } else {
+                }
+                
+                print(self?.loginViewModel!.loginModel)
+            }
+        }
+        
+        loginViewModel!.showAlertClosure = { [weak self] (message) in
+            DispatchQueue.main.async {
+                if (self?.animatorView) != nil {
+                    UIViewController.removeSpinner(spinner: (self?.animatorView)!)
+                }
+                //show alert
+                self?.popupAlert(title: "", message: message, actionTitles: ["Ok"], actions: [ {action1 in
+                    }, nil])
+            }
+            } as ((String) -> Void)
+    }
+    
 }
 
 

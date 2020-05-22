@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ParameterBodyMaker {
 
@@ -26,8 +27,10 @@ internal enum JCPostServicePath: ParameterBodyMaker {
     //case getPdf(week : String, menuId : Int, calorieValue : Int)
     case getPdf(weekstart : String, weekend : String)
 
-    case getCenterLocation()
-
+    case getCenterLocation
+    
+    case login(email : String, password : String, deviceToken: String, deviceType: String)
+    
     // MARK: - Path
     internal var path: ServerPaths {
         switch self {
@@ -37,7 +40,11 @@ internal enum JCPostServicePath: ParameterBodyMaker {
 
         case .getPdf:
             return .getPdf
+            
+        case .login:
+             return .login
         }
+ 
     }
 
     // MARK: - Parameters
@@ -51,7 +58,14 @@ internal enum JCPostServicePath: ParameterBodyMaker {
         case .getPdf(let weekstart, let weekend):
             params["weekstart"] = weekstart
             params["weekend"] = weekend
-        }
+            
+            
+        case .login(let email, let password, let deviceToken, let deviceType):
+            params["email"] = email
+            params["password"] = password
+            params["deviceToken"] = deviceToken
+            params["deviceType"] = deviceType
+         }
 
         return params
     }
@@ -60,4 +74,5 @@ internal enum JCPostServicePath: ParameterBodyMaker {
 enum ServerPaths: String {
     case getCenterLocation = ""
     case getPdf = "foodmenu/getpdfmenu"
+    case login =  "users/loginUser"
 }

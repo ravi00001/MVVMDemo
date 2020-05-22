@@ -50,7 +50,7 @@ class LocatorViewModel: NSObject {
     }
 
     func getLocationList() {
-        let path = JCPostServicePath.getCenterLocation()
+        let path = JCPostServicePath.getCenterLocation
         self.callGetLocation(servicePath: path, with: .getLocation)
     }
 
